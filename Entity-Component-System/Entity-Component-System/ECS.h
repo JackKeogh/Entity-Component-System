@@ -12,6 +12,8 @@
 /// </author>
 
 #pragma once
+#include <bitset>
+#include <array>
 
 namespace jk
 {
@@ -67,6 +69,17 @@ namespace jk
 		static typeID = getComponentTypeID();
 		return typeID;
 	}
+
+	// Defining max limits
+	constexpr size_t maxComponents = 32;
+	constexpr size_t maxGroups = 32;
+	constexpr size_t maxLayers = 32;
+
+	// Bitsets and arrays
+	using GroupBitSet = std::bitset<maxGroups>;
+	using LayerBitSet = std::bitset<maxLayers>;
+	using ComponentBitSet = std::bitset<maxComponents>;
+	using ComponentArray = std::array<Component*, maxComponents>;
 
 	/// <summary>
 	/// Abstract class for future components to
