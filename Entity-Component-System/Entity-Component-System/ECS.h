@@ -20,6 +20,7 @@ namespace jk
 	class Entity;
 	class EntityManager;
 
+	// Groups
 	enum Groups : size_t
 	{
 		PlayerGroup,
@@ -33,6 +34,7 @@ namespace jk
 		TileGroup
 	};
 
+	// Layers
 	enum Layers : size_t
 	{
 		Background,
@@ -44,6 +46,27 @@ namespace jk
 	using ComponentID = size_t;
 	using Group = size_t;
 	using Layer = size_t;
+
+	/// <summary>
+	/// Assigns a component an ID.
+	/// </summary>
+	/// <returns>A size_t value.</returns>
+	inline ComponentID getComponentTypeID()
+	{
+		static ComponentID lastID = 0;
+		return lastID++;
+	}
+
+	/// <summary>
+	/// Assigns a type ID.
+	/// </summary>
+	/// <returns>A size_t value.</returns>
+	template <typename T>
+	inline ComponentID getComponentTypeID() noexcept
+	{
+		static typeID = getComponentTypeID();
+		return typeID;
+	}
 
 	/// <summary>
 	/// Abstract class for future components to
