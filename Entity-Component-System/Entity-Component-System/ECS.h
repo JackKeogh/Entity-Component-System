@@ -20,6 +20,11 @@ namespace jk
 	class Entity;
 	class EntityManager;
 
+	// Type Aliases
+	using ComponentID = size_t;
+	using Group = size_t;
+	using Layer = size_t;
+
 	/// <summary>
 	/// Abstract class for future components to
 	/// inherit from.
