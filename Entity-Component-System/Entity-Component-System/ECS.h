@@ -20,6 +20,26 @@ namespace jk
 	class Entity;
 	class EntityManager;
 
+	enum Groups : size_t
+	{
+		PlayerGroup,
+		EnemyGroup,
+		NPCGroup,
+		ItemGroup,
+		DoorGroup,
+		PlayerBulletGroup,
+		EnemyBulletGroup,
+		BreakableGroup,
+		TileGroup
+	};
+
+	enum Layers : size_t
+	{
+		Background,
+		Middleground,
+		Foreground
+	};
+
 	// Type Aliases
 	using ComponentID = size_t;
 	using Group = size_t;
