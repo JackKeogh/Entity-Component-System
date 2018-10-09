@@ -7,6 +7,23 @@ Source code for an Entity Component System Library.
 ### Component Class
 An abstract class that creates a blueprint for future components to inherit from.
 
+## Catagories
+### Groups
+- Player
+- Enemy
+- NPC
+- Item
+- Door
+- Player Bullet
+- Enemy Bullet
+- Breakable
+- Tile
+
+### Layers
+- Background
+- Middleground
+- Foreground
+
 ## Functions
 ### Component Class
 #### Initialiser
