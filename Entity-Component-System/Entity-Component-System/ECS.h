@@ -259,4 +259,24 @@ namespace jk
 		GroupBitSet m_groupBitSet;
 		LayerBitSet m_layerBitSet;
 	};
+
+	/// <summary>
+	/// The Entity Manager class will keep track of all entities. It
+	/// will group entities together based on groups or layers.
+	/// </summary>
+	class EntityManager
+	{
+	public:
+
+		// Constructor
+		EntityManager()
+		{
+			m_entities = std::vector<std::unique_ptr<Entity>>();
+		}
+
+	private:
+		std::vector<std::unique_ptr<Entity>> m_entities;
+		std::array<std::vector<Entity>*, maxGroups> m_groupedEntities;
+		std::array<std::vector<Entity*>, maxLayers> m_layeredEntities;
+	};
 }
