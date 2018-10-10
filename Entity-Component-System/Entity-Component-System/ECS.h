@@ -67,7 +67,7 @@ namespace jk
 	template <typename T>
 	inline ComponentID getComponentTypeID() noexcept
 	{
-		static typeID = getComponentTypeID();
+		static ComponentID typeID = getComponentTypeID();
 		return typeID;
 	}
 
@@ -207,6 +207,46 @@ namespace jk
 		void delLayer(Layer layer)
 		{
 			m_layerBitSet[layer] = false;
+		}
+
+		/// <summary>
+		/// addComponent
+		/// 
+		/// Adds a component to the Entity accepting multiple arguments.
+		/// </summary>
+		template <typename T, typename... TARGS>
+		T& addComponent(TARGS&&... args)
+		{
+			T* c(new T(std::forward<TARGS>(args)...));
+			c->m_entity = this;
+
+			std::unique_ptr<Component> Uptr{ c };
+			m_components.emplace_back(std::move(Uptr));
+
+			m_componentArray[getComponentTypeID<T>()] = c;
+			m_componentBitSet[getComponentTypeID<T>()] = true;
+
+			c->Init();
+			return *c;
+		}
+
+		/// <summary>
+		/// Returns a reference to a particular component.
+		/// </summary>
+		template <typename T>
+		T& getComponent()
+		{
+			auto ptr(m_componentArray[getComponentTypeID<T>()]);
+			return *static_cast<T*>(ptr);
+		}
+
+		/// <summary>
+		/// Checks if an entity has a paticular component.
+		/// </summary>
+		template <typename T>
+		bool hasComponent() const
+		{
+			return m_componentBitSet[getComponentTypeID<T>()];
 		}
 
 	private:
