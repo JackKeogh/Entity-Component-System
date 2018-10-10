@@ -7,6 +7,14 @@ Source code for an Entity Component System Library.
 ### Component Class
 An abstract class that creates a blueprint for future components to inherit from.
 
+### Entity Class
+A class that is built to manage individual component objects. Components are able to be added,
+removed, updated and rendered using this class. Entities can be grouped by layers and by groups.
+
+### Entity Manager
+A class to handle multiple entities. Entities are able to be updated, rendered, added and removed.
+A vector of entities can be accessed as well as the specific groups and layers they are in.
+
 ## Catagories
 ### Groups
 - Player
@@ -95,3 +103,21 @@ This method returns a reference to a particular component.
 #### hasComponent
 bool hasComponent() const<br />
 This method checks that an Entity has a particular component and returns a bool statement.
+
+### Entity Manager Class
+#### Constructor
+EntityManager()<br />
+The default constructor for the Entity Manager class. It initialises a vector of entities.
+
+#### Update
+void Update()<br />
+This method is used to update each entity in the vector of entities.
+
+#### Render
+void Render()<br />
+This method is used to render each entity in the vector of entities.
+
+#### Refresh
+void Refresh() <br />
+This method is used to refresh the Entity Manager. It removes inactive entities from the layer and group
+groups as well as the vector of entities.
