@@ -58,3 +58,27 @@ This method returns a bool value that determines if the entity is active or not.
 #### setActive
 void setActive(bool set)<br />
 This method sets the entity's active bool variable to the parameter that's passed in.
+
+#### hasGroup
+bool hasGroup(Group group)<br />
+This method checks if the entity is apart of a specific group.
+
+#### hasLayer
+bool hasLayer(Layer layer)<br />
+This method checks if the entity is apart of a specific layer.
+
+#### addGroup
+void addGroup(Group group)<br />
+This method assigns the entity a particular group to be apart of.
+
+#### addLayer
+void addLayer(Layer layer)<br />
+This method assigns the entity a particular layer to be apart of.
+
+#### delGroup
+void delGroup(Group group)<br />
+This method removes the entity from a particular group.
+
+#### delLayer
+void delLayer(Layer layer)<br />
+This method removes the entity from a particular layer.
