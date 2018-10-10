@@ -274,9 +274,68 @@ namespace jk
 			m_entities = std::vector<std::unique_ptr<Entity>>();
 		}
 
+		/// <summary>
+		/// Used to call the entities update method.
+		/// </summary>
+		void Update()
+		{
+			for (auto& e : m_entities)
+			{
+				e->Update();
+			}
+		}
+
+		/// <summary>
+		/// Used to call the entities render method.
+		/// </summary>
+		void Render()
+		{
+			for (auto& e : m_entities)
+			{
+				e->Render();
+			}
+		}
+
+		/// <summary>
+		/// Used to refresh the entity manager. Removes entities
+		/// from the entity list if they are inactive as well as 
+		/// removing them from the groups and layers array.
+		/// </summary>
+		void Refresh()
+		{
+			for (auto i(0u); i < maxGroups; i++)
+			{
+				auto& v(m_groupedEntities[i]);
+
+				v.erase(std::remove_if(std::begin(v), std::end(v), [i](Entity * entity)
+				{
+					return !entity->isActive() || !entity->hasGroup(i);
+				}),
+					std::end(v));
+			}
+
+			for (auto i(0u); i < maxLayers; i++)
+			{
+				auto& v(m_layeredEntities[i]);
+
+				v.erase(std::remove_if(std::begin(v), std::end(v), [i](Entity * entity)
+				{
+					return !entity->isActive() || !entity->hasLayer(i);
+				}),
+					std::end(v));
+			}
+
+			m_entities.erase(std::remove_if(std::begin(m_entities), std::end(m_entities),
+				[](const std::unique_ptr<Entity>& entity)
+			{
+				return !entity->isActive();
+			}),
+				std::end(m_entities));
+		}
+
 	private:
 		std::vector<std::unique_ptr<Entity>> m_entities;
-		std::array<std::vector<Entity>*, maxGroups> m_groupedEntities;
+		std::array<std::vector<Entity*>, maxGroups> m_groupedEntities;
 		std::array<std::vector<Entity*>, maxLayers> m_layeredEntities;
 	};
 }
