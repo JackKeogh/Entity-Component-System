@@ -82,3 +82,16 @@ This method removes the entity from a particular group.
 #### delLayer
 void delLayer(Layer layer)<br />
 This method removes the entity from a particular layer.
+
+#### addComponent
+T& addComponent(TARGS&&... args)<br />
+This method adds a component to the Entity, it takes in multiple parameters to create
+the component and then returns a reference to the new component.
+
+#### getComponent
+T& getComponent()<br />
+This method returns a reference to a particular component.
+
+#### hasComponent
+bool hasComponent() const<br />
+This method checks that an Entity has a particular component and returns a bool statement.
