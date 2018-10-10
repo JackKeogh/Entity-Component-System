@@ -1,1 +1,7 @@
-﻿
+﻿  ECS.cpp
+c:\users\jack\onedrive\desktop\projects\entity-component-system\entity-component-system\entity-component-system\ecs.h(70): error C3861: 'typeID': identifier not found
+c:\users\jack\onedrive\desktop\projects\entity-component-system\entity-component-system\entity-component-system\ecs.h(71): error C3861: 'typeID': identifier not found
+c:\users\jack\onedrive\desktop\projects\entity-component-system\entity-component-system\entity-component-system\ecs.cpp(6): error C2027: use of undefined type 'jk::EntityManager'
+  c:\users\jack\onedrive\desktop\projects\entity-component-system\entity-component-system\entity-component-system\ecs.h(24): note: see declaration of 'jk::EntityManager'
+c:\users\jack\onedrive\desktop\projects\entity-component-system\entity-component-system\entity-component-system\ecs.cpp(12): error C2027: use of undefined type 'jk::EntityManager'
+  c:\users\jack\onedrive\desktop\projects\entity-component-system\entity-component-system\entity-component-system\ecs.h(24): note: see declaration of 'jk::EntityManager'

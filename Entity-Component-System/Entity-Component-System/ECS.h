@@ -146,6 +146,69 @@ namespace jk
 		/// <param name="set">A bool variable to set active to.</param>
 		void setActive(bool set) { m_active = set; };
 
+		/// <summary>
+		/// hasGroup
+		/// 
+		/// Checks if the entity is apart of a specific group.
+		/// </summary>
+		/// <param name="group">The group to check.</param>
+		/// <returns>A bool value.</returns>
+		bool hasGroup(Group group)
+		{
+			return m_groupBitSet[group];
+		}
+
+		/// <summary>
+		/// hasLayer
+		/// 
+		/// Check if the entity is apart of a specific layer.
+		/// </summary>
+		/// <param name="layer">The layer to check.</param>
+		/// <returns>A bool value.</returns>
+		bool hasLayer(Layer layer)
+		{
+			return m_layerBitSet[layer];
+		}
+
+		/// <summary>
+		/// addGroup
+		/// 
+		/// Assigns the entity a group to be apart of.
+		/// </summary>
+		/// <param name="group">The group to be apart of.</param>
+		void addGroup(Group group);
+
+		/// <summary>
+		/// addLayer
+		/// 
+		/// Assigns the entity a layer to be apart of.
+		/// </summary>
+		/// <param name="layer">The layer to be apart of.</param>
+		void addLayer(Layer layer);
+
+
+		/// <summary>
+		/// delGroup
+		/// 
+		/// Removes the entity from a group.
+		/// </summary>
+		/// <param name="group">The group to be removed from.</param>
+		void delGroup(Group group)
+		{
+			m_groupBitSet[group] = false;
+		}
+
+		/// <summary>
+		/// delLayer
+		/// 
+		/// Removes the entity from a layer.
+		/// </summary>
+		/// <param name="layer">The layer to be removed from.</param>
+		void delLayer(Layer layer)
+		{
+			m_layerBitSet[layer] = false;
+		}
+
 	private:
 		EntityManager & m_manager;
 		bool m_active;
