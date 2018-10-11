@@ -121,3 +121,28 @@ This method is used to render each entity in the vector of entities.
 void Refresh() <br />
 This method is used to refresh the Entity Manager. It removes inactive entities from the layer and group
 groups as well as the vector of entities.
+
+#### Add To Group
+void addToGroup(Entity * entity, Group group)<br />
+This method adds an entity to a particular group.
+
+#### Add To Layer
+void addToLayer(Entity * entity, Layer layer)<br />
+This method adds an entity to a particular layer.
+
+#### Get Group
+vector<Entity *>& getGroup(Group group)<br />
+This method returns a vector of entity pointers that are associated with a particular group.
+
+#### Get Layer
+vector<Entity *>& getLayer(Layer layer)<br />
+This method returns a vector of entity pointers that are associated with a particular layer.
+
+#### Add Entity
+Entity& addEntity()<br />
+This method creates a new entity object and places it in the vector of entities. It returns a 
+reference to this new entity.
+
+#### Get Entities
+vector<unique_ptr<Entity>> const& getEntities() const<br />
+This method returns the vector of entities in the entity manager.
