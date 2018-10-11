@@ -333,6 +333,81 @@ namespace jk
 				std::end(m_entities));
 		}
 
+		/// <summary>
+		/// addToGroup
+		/// 
+		/// Adds entities to a particular group.
+		/// </summary>
+		/// <param name="entity">The entity to add.</param>
+		/// <param name="group">The group to add to.</param>
+		void addToGroup(Entity * entity, Group group)
+		{
+			m_groupedEntities[group].emplace_back(entity);
+		}
+
+		/// <summary>
+		/// addToLayer
+		/// 
+		/// Adds entities to a particular layer.
+		/// </summary>
+		/// <param name="entity">The entity to add.</param>
+		/// <param name="layer">The layer to add to.</param>
+		void addToLayer(Entity * entity, Layer layer)
+		{
+			m_layeredEntities[layer].emplace_back(entity);
+		}
+
+		/// <summary>
+		/// getGroup
+		/// 
+		/// Gets a particular group of entities.
+		/// </summary>
+		/// <param name="group">The group to get entities from.</param>
+		/// <returns>A vector of entities.</returns>
+		std::vector<Entity *>& getGroup(Group group)
+		{
+			return m_groupedEntities[group];
+		}
+
+		/// <summary>
+		/// getLayer
+		/// 
+		/// Gets a particular layer of entities.
+		/// </summary>
+		/// <param name="layer">The layer to get entities from.</param>
+		/// <returns>A vector of entities.</returns>
+		std::vector<Entity *>& getLayer(Layer layer)
+		{
+			return m_layeredEntities[layer];
+		}
+
+		/// <summary>
+		/// addEntity
+		/// 
+		/// Creates a new entity and adds it to the Entity Manager's
+		/// entity vector.
+		/// </summary>
+		/// <returns>A reference to the new entity.</returns>
+		Entity& addEntity()
+		{
+			Entity * entity = new Entity(*this);
+			std::unique_ptr<Entity> Uptr{ entity };
+			m_entities.emplace_back(std::move(Uptr));
+
+			return *entity;
+		}
+
+		/// <summary>
+		/// getEntities
+		/// 
+		/// Gets the entity manager's vector of entities.
+		/// </summary>
+		/// <returns>The vector of entities.</returns>
+		std::vector<std::unique_ptr<Entity>> const& getEntities() const
+		{
+			return m_entities;
+		}
+
 	private:
 		std::vector<std::unique_ptr<Entity>> m_entities;
 		std::array<std::vector<Entity*>, maxGroups> m_groupedEntities;

@@ -1,5 +1,2 @@
 ﻿  ECS.cpp
-c:\users\jack\onedrive\desktop\projects\entity-component-system\entity-component-system\entity-component-system\ecs.cpp(6): error C2039: 'addToGroup': is not a member of 'jk::EntityManager'
-  c:\users\jack\onedrive\desktop\projects\entity-component-system\entity-component-system\entity-component-system\ecs.h(267): note: see declaration of 'jk::EntityManager'
-c:\users\jack\onedrive\desktop\projects\entity-component-system\entity-component-system\entity-component-system\ecs.cpp(12): error C2039: 'addToLayer': is not a member of 'jk::EntityManager'
-  c:\users\jack\onedrive\desktop\projects\entity-component-system\entity-component-system\entity-component-system\ecs.h(267): note: see declaration of 'jk::EntityManager'
+  Entity-Component-System.vcxproj -> C:\Users\jack\OneDrive\Desktop\Projects\Entity-Component-System\Entity-Component-System\x64\Debug\Entity-Component-System.lib
